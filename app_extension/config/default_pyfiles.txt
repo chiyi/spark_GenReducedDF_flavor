@@ -1,3 +1,4 @@
 ${SPARK_HOME}/python/lib/ext_pypkgs.zip
 projects/common/interface.py
 projects/common/cust_pyspark.py
+projects/common/get_path.py
