@@ -22,6 +22,7 @@ GLOBAL_DATAPATH_FORMAT = {
     #DataName.GoogleFeedback: 'hdfs:/skim/BidFeedback/Google/%Y/%m/%d/%HH/GoogleFeedback_%Y_%m_%d_%HH%M.parquet'
     DataName.GoogleFeedback: 'projects/BasicAggregation/data/BidFeedback/Google/%Y/%m/%d/%HH/GoogleFeedback_%Y_%m_%d_%HH%M.parquet',
     #DataName.JoinlogClk: 'hdfs:/join/learn/ImpClk/%Y/%m/%d/%HH/Join_ImpClk_%Y_%m_%d_%HH%M.parquet',
+    DataName.JoinlogClk: 'projects/BasicAggregation/data/ImpClk/%Y/%m/%d/%HH/Join_ImpClk_%Y_%m_%d_%HH%M.parquet',
     #DataName.JoinlogConv: 'hdfs:/join/learn/ImpConv/%Y/%m/%d/%HH/Join_ImpConv_%Y_%m_%d_%HH%M.parquet',
     DataName.JoinlogConv: 'projects/BasicAggregation/data/ImpConv/%Y/%m/%d/%HH/Join_ImpConv_%Y_%m_%d_%HH.parquet'
 }
