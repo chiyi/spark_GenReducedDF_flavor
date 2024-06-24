@@ -1,0 +1,7 @@
+schema1d_name	schema1d_type	is_nonempty
+A_info.id	string	true
+A_info.obj_x.name	string	true
+A_info.obj_x.value	float	true
+A_info.obj_y.z1	int	false
+A_info.obj_y.z2	int	false
+A_info.obj_y.z3	int	false
