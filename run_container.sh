@@ -11,7 +11,8 @@ docker run -it \
  -e TOTAL_EXECUTOR_CORES="16" \
  -e EXECUTOR_MEMORY="4G" \
  -e DRIVER_MEMORY="4G" \
- -v ${PWD}/ipython:/home/spark/.ipython \
+ -v ${PWD}/user_cache/ipython:/home/spark/.ipython \
+ -v ${PWD}/user_cache/scala_history:/home/spark/.scala_history \
  -v ${PWD}/spark-defaults.conf:/opt/spark/conf/spark-defaults.conf \
  -v ${PWD}/projects:/opt/spark/work-dir/projects \
  --net host \
