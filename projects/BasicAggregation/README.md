@@ -7,7 +7,7 @@ If we don't have real data, we may need to write some fake content to populate t
 
 ```
 # in pyspark shell/interpreter
-# set outpath with respect to the dataset in 'projects/common/get_path.py'.
+# set outpath with respect to the dataset in 'projects/common/python/get_path.py'.
 # example: 'projects/BasicAggregation/data/BidRequest/Google/2024/06/19/14H/GoogleBidRequest_2024_06_19_14H10.parquet''
 exec(open('projects/BasicAggregation/src/create_fakedata.py', 'rb').read())
 ```
