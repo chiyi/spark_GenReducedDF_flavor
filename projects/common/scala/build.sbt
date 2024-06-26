@@ -1,0 +1,5 @@
+name := "common"
+version := "0.0"
+scalaVersion := "2.12.19"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "3.5.1"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.5.1"

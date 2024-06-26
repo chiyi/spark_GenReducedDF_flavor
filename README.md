@@ -13,5 +13,7 @@ It's a pyspark specialization in aggregating data from a specified time range to
   or ./run_sparksql.sh
   ```
 
-### example
+### examples
 * [projects/BasicAggregation](projects/BasicAggregation)
+* [projects/Demo_ScalaEnv](projects/Demo_ScalaEnv)
+* [projects/Demo_NestedJson](projects/Demo_NestedJson)
