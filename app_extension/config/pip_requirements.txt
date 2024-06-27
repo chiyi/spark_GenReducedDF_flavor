@@ -1,4 +1,5 @@
 protobuf
 pandas
 scikit-learn
+numpy
 
