@@ -13,7 +13,7 @@ exec(open('projects/BasicAggregation/src/create_fakedata.py', 'rb').read())
 ```
 
 ### Check Google Bid Response Feedback
-The processing code [check_googlefdbk.py](src/check_googlefdbk.py) read the dataset `DataName.GoogleBidRequest` for the specified hour, and read the dataset `DataName.GoogleFeedback` with an expanding time window. 
+The processing code [check_googlefdbk.py](src/check_googlefdbk.py) reads the dataset `DataName.GoogleBidRequest` for the specified hour, and read the dataset `DataName.GoogleFeedback` with an expanding time window. 
 The feedback information is joined with the bid request data for further aggregation. Finally, the aggregated result is saved into a pandas CSV-file.
 
 ```
@@ -37,7 +37,7 @@ projects/BasicAggregation/tasks/run_check_googlefdbk.sh
 ```
 
 ### Aggregate ConvLog for OrderValue Relatives
-The processing code [aggconv_ordervalue.py](src/aggconv_ordervalue.py) read the dataset `DataName.JoinlogConv` for aggregating on the specified groups.  
+The processing code [aggconv_ordervalue.py](src/aggconv_ordervalue.py) reads the dataset `DataName.JoinlogConv` for aggregating on the specified groups.  
 The aggregated result is saved into a pandas CSV-file.
 
 ```
@@ -57,7 +57,7 @@ projects/BasicAggregation/tasks/run_aggconv_ordervalue.sh
 ```
 
 ### Transform Data for Preparing Binned Likelihood Calculation
-The processing code [trsfm_binned_likelihood.py](src/trsfm_binned_likelihood.py) read the dataset `DataName.JoinlogClk` for performing various complex mappings on selected columns as a demonstration. 
+The processing code [trsfm_binned_likelihood.py](src/trsfm_binned_likelihood.py) reads the dataset `DataName.JoinlogClk` for performing various complex mappings on selected columns as a demonstration. 
 Each row of data is categorized into multiple groups for further binned likelihood calculation.
 
 ```
@@ -74,4 +74,24 @@ projects/BasicAggregation/data/ImpClk/2024/06/20/15H/Join_ImpClk_2024_06_20_15H*
 ```
 # the defined task
 projects/BasicAggregation/tasks/run_trsfm_binned_likelihood.sh
+```
+
+#### User-Defined Function for Binomial Binned Log-Likelihood
+The temporal code [aggbinlh_llh.py](src/aggbinlh_llh.py) reads the dataset for calculating log-likelihood.
+* input dataset contains (group name, number of record in the group, expectation labels, observed labels, ...) for each group.
+* Binomial Binned Log-Likelihood calculation : `def Cal_loglikelihood_binomial`
+  * By assuming identical binomial trials within the same group,
+  * (the number of successes, total number of trials, predicted probability of success)
+  * leads to the likelihood for the expected value in this group.
+  * Calculate it in logarithmic form and sum over all groups to estimate the binned (grouped) log-likelihood
+ 
+```
+# in pyspark shell/interpreter
+# modify the temporal code for your data
+In [1]: exec(open('projects/BasicAggregation/src/aggbinlh_llh.py', 'rb').read())
+sys.argv= ['/usr/local/bin/ipython3']
+
+In [2]: resdf = aggbinlh_llh(['', '20240620_1500', 'test.out'])
+
+resdf.show()
 ```
